@@ -21,10 +21,10 @@ function Post({ post }: Props) {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm<IFormInput>();
   console.log(post);
 
-  const onSubmit: SubmitHandler<IFormInput> = async (data) => {
+  const onSubmitt: SubmitHandler<IFormInput> = async (data) => {
     fetch("/api/createComments", {
       method: "POST",
       body: JSON.stringify(data),
@@ -98,7 +98,7 @@ function Post({ post }: Props) {
         </div>
       ) : (
         <form
-          onSubmit={handleSubmit(onSubmit)}
+          onSubmit={handleSubmit(onSubmitt)}
           className="flex-col p-5 my-10 max-w-2xl mx-auto mb-10"
         >
           <h3 className="text-sm text-yellow-500">Enjoyed this article?</h3>
